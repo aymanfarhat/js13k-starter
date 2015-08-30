@@ -1,0 +1,28 @@
+body { 
+    margin: 0; 
+    padding: 0; 
+    background: #000;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #FFF;
+}
+
+canvas { 
+    display: block; 
+    margin: 0 auto; 
+    background: #4b0082; 
+}
+
+@media screen and (min-width: 0px) and (max-width: 660px) {
+    #fork { display: none; }
+}
+
+@media screen and (min-width: 660px) {
+    #fork { display: block; }
+}

@@ -9,11 +9,12 @@ Includes:
 - Project structure and example modules
 - Basic canvas animation example
 - Gulp web server for running your project in development mode
-- Gulp based build process for minifying, compiling the project into 1 file and zipping
+- Gulp based build process: concatenate, minify, compile and replace into 1 minified HTML file then zip it with the assets
 - Desktop notification on the final file size with every build to keep eye on it
 
 ##Instructions
 TODO
+Make sure to test the built version before sumbmitting in case minification or 
 
 ##About JS13K
 

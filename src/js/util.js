@@ -1,3 +1,5 @@
+"use strict";
+
 $.util = {};
 
 window.requestAnimFrame = (function(){
@@ -19,4 +21,4 @@ $.util.randomInRange= function (min, max) {
 $.util.pickRandomFromObject = function (obj) {
     var keys = Object.keys(obj)
     return obj[keys[ keys.length * Math.random() << 0]];
-}
+};

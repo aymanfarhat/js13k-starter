@@ -1,3 +1,5 @@
+"use strict";
+
 $.Draw = {
     clear: function() {
         $.ctx.clearRect(0, 0, $.width, $.height);

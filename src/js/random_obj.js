@@ -1,10 +1,12 @@
+"use strict";
+
 $.RandomObj = function () {
-	this.x = $.util.randomInRange(0, $.width);
-	this.y = $.util.randomInRange(0, $.height);
+    this.x = $.util.randomInRange(0, $.width);
+    this.y = $.util.randomInRange(0, $.height);
     this.dimension = 0;
     this.targetDimension = $.util.randomInRange(50, 70);
     this.growthSpeed = $.util.randomInRange(0.5, 2);
-	this.color = $.util.pickRandomFromObject($.colors);
+    this.color = $.util.pickRandomFromObject($.colors);
 };
 
 

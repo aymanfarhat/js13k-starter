@@ -1,4 +1,6 @@
-$ = {};
+"use strict";
+
+var $ = {};
 
 $.width = 600;
 $.height = 600;
@@ -9,7 +11,7 @@ $.colors = {
     pink: 'rgba(255, 128, 255, 1)',
     green: 'rgba(129, 255, 226, 1)',
     blue: 'rgba(94, 0, 244, 1)'
-}
+};
 
 $.entities = [];
 
@@ -29,13 +31,13 @@ $.loop = function () {
     $.update();
 
     window.requestAnimFrame($.loop);
-}
+};
 
 $.update = function () {
     for (var i = 0; i < $.entities.length; i++) {
         $.entities[i].update();    
     }
-}
+};
 
 $.render = function () {
     $.Draw.clear();
@@ -51,7 +53,7 @@ $.generateRandomObjects = function () {
     for (var i = 0; i < 50; i++) {
         $.entities.push(new $.RandomObj());
     }
-}
+};
 
 window.addEventListener('load', $.init, false);
 window.addEventListener('click', $.generateRandomObjects);

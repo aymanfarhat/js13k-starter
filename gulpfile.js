@@ -10,6 +10,7 @@ var gulp      = require('gulp'),
     replaceHTML = require('gulp-html-replace'),
     rimraf = require('gulp-rimraf'),
     ignore = require('gulp-ignore'),
+    zip = require('gulp-zip'),
 
     serveDir = './src',
 
@@ -17,7 +18,7 @@ var gulp      = require('gulp'),
 
     server = {
         host: 'localhost',
-        port: '9000'
+        port: '5000'
     },
 
     distPaths = {
@@ -90,5 +91,11 @@ gulp.task('cleanBuild', function () {
         .pipe(rimraf());
 });
 
+gulp.task('zipBuild', function () {
+    return gulp.src('./_build/*')
+        .pipe(zip('game.zip'))
+        .pipe(gulp.dest('./_dist'));
+});
+
 gulp.task('default', ['serve']);
-gulp.task('build', ['cleanBuild', 'setEnvProduction', 'buildJS', 'buildCSS', 'buildIndex', 'serve']);
+gulp.task('build', ['cleanBuild', 'setEnvProduction', 'buildJS', 'buildCSS', 'buildIndex', 'zipBuild']);

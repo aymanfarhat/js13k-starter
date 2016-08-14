@@ -12,6 +12,7 @@ var gulp          = require('gulp'),
     ignore        = require('gulp-ignore'),
     zip           = require('gulp-zip'),
     checkFileSize = require('gulp-check-filesize'),
+    watch         = require('gulp-watch'),
 
     serveDir = './src',
 
@@ -95,5 +96,11 @@ gulp.task('zipBuild', function () {
         }));
 });
 
-gulp.task('default', ['serve']);
+gulp.task('watch', function () {
+    gulp.watch(sourcePaths.css, ['buildCSS', 'zipBuild']);
+    gulp.watch(sourcePaths.js, ['buildJS', 'zipBuild']);
+    gulp.watch(sourcePaths.mainHtml, ['buildIndex', 'zipBuild']);
+});
+
 gulp.task('build', ['buildJS', 'buildCSS', 'buildIndex', 'zipBuild']);
+gulp.task('default', ['build', 'serve', 'watch']);

@@ -11,11 +11,16 @@ Includes:
 - Basic canvas animation example
 - Gulp web server for running your project in development mode
 - Gulp based build process: concatenate, minify, compile and replace into 1 minified HTML file then zip it
+- Watch files for changes and run the build
+- For each new build and zip, shows the file size of the current zipped project on the CLI
 
 ##Instructions
-TODO
 
-Note: Running the build command will serve the built project in order to make sure the build is not broken after concatenation or minification 
+Install npm dependencies via `npm install`
+
+You can either run the tasks individually or just run `gulp` which will `build -> zip -> serve -> watch`. After the watch is triggered, any changes will trigger this process to run again.
+
+Description on the project structure and some notes on the gulp build script are available in this [post](http://thecodeship.com/web-development/bootstrap-vanilla-js-game-gulp-build-project-setup/).
 
 ##About JS13K
 

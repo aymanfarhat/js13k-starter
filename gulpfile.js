@@ -1,20 +1,19 @@
-var gulp      = require('gulp'),
-    webserver = require('gulp-webserver'),
-    opn       = require('opn'),
-    concat    = require('gulp-concat'),
-    minifyCSS = require('gulp-minify-css'),
-    rename    = require('gulp-rename'),
-    uglify    = require('gulp-uglify'),
-    jshint    = require('gulp-jshint'),
-    minifyHTML = require('gulp-minify-html'),
-    replaceHTML = require('gulp-html-replace'),
-    rimraf = require('gulp-rimraf'),
-    ignore = require('gulp-ignore'),
-    zip = require('gulp-zip'),
+var gulp          = require('gulp'),
+    webserver     = require('gulp-webserver'),
+    opn           = require('opn'),
+    concat        = require('gulp-concat'),
+    minifyCSS     = require('gulp-minify-css'),
+    rename        = require('gulp-rename'),
+    uglify        = require('gulp-uglify'),
+    jshint        = require('gulp-jshint'),
+    minifyHTML    = require('gulp-minify-html'),
+    replaceHTML   = require('gulp-html-replace'),
+    rimraf        = require('gulp-rimraf'),
+    ignore        = require('gulp-ignore'),
+    zip           = require('gulp-zip'),
+    checkFileSize = require('gulp-check-filesize'),
 
     serveDir = './src',
-
-    timestamp = Math.floor(Date.now() / 1000),
 
     server = {
         host: 'localhost',
@@ -23,8 +22,8 @@ var gulp      = require('gulp'),
 
     distPaths = {
         build: '_build',
-        js_build_file: 'game.min.' + timestamp + '.js',
-        css_build_file: 'game.min.' + timestamp + '.css'
+        js_build_file: 'game.min.js',
+        css_build_file: 'game.min..css'
     },
 
     sourcePaths = {
@@ -81,10 +80,6 @@ gulp.task('buildIndex', function () {
         .pipe(gulp.dest(distPaths.build));
 });
 
-gulp.task('setEnvProduction', function () {
-    serveDir = './_build';
-});
-
 gulp.task('cleanBuild', function () {
     return gulp.src('./_build/*', { read: false })    
         .pipe(ignore('.gitignore'))
@@ -94,8 +89,11 @@ gulp.task('cleanBuild', function () {
 gulp.task('zipBuild', function () {
     return gulp.src('./_build/*')
         .pipe(zip('game.zip'))
-        .pipe(gulp.dest('./_dist'));
+        .pipe(gulp.dest('./_dist'))
+        .pipe(checkFileSize({
+            fileSizeLimit: 16384 
+        }));
 });
 
 gulp.task('default', ['serve']);
-gulp.task('build', ['cleanBuild', 'setEnvProduction', 'buildJS', 'buildCSS', 'buildIndex', 'zipBuild']);
+gulp.task('build', ['buildJS', 'buildCSS', 'buildIndex', 'zipBuild']);

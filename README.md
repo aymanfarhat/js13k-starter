@@ -1,6 +1,6 @@
-#JS13K Starter
+# JS13K Starter
 
-##Introduction
+## Introduction
 
 A project starter template and build process for getting up and running with your JS13K game faster.
 
@@ -14,7 +14,7 @@ Includes:
 - Watch files for changes and run the build
 - For each new build and zip, shows the file size of the current zipped project on the CLI
 
-##Instructions
+## Instructions
 
 Install npm dependencies via `npm install`
 
@@ -22,13 +22,13 @@ You can either run the tasks individually or just run `gulp` which will `build -
 
 Description on the project structure and some notes on the gulp build script are available in this [post](http://thecodeship.com/web-development/bootstrap-vanilla-js-game-gulp-build-project-setup/).
 
-##About JS13K
+## About JS13K
 
 Js13kGames is a JavaScript coding competition for HTML5 game developers. The fun part of the compo is the file size limit set to 13 kilobytes. 
 
 Every year carries a new theme for the challenge. The competition starts at 13:00 CEST, 13th August and ends at 13:00 CEST, 13th September.
 
-##MIT License
+## MIT License
 
 Copyright (c) 2015 Ayman Farhat
 
